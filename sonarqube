@@ -1,0 +1,68 @@
+#!bin/bash
+
+#Author: Ekus
+#Date: Feb 22: 2022
+
+echo " We are installing Sonarqube on CentOS7"
+
+echo 
+
+sleep 2
+echo
+
+yum update -y
+
+sleep 2
+echo
+
+yum install java-11-openjdk-deel -y
+
+sleep
+echo
+
+yum install java-11-openjdk -y
+
+sleep 2 
+echo
+
+cd /opt
+
+sleep 2 
+echo
+
+yum install wget -y
+
+sleep 2
+echo
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.3.0.51899.zip
+
+sleep 2
+echo
+
+yum install unzip -y
+
+sleep 2
+echo
+
+unzip /opt/sonarqube-9.3.0.51899.zip
+
+sleep 2
+echo
+
+chown -R vagrant:vagrant /opt/sonarqube-9.3.0.51899
+
+sleep 2
+echo
+
+cd /opt/sonarqube-9.3.0.51899/bin/linux-x86-64
+
+sleep 2
+echo
+
+./sonar.sh start
+
+sleep 2
+echo
+
+echo "Sonarqube installed and started successfully"
